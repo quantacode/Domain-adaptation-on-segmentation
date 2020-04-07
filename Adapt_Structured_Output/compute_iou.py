@@ -39,6 +39,8 @@ def compute_mIoU(gt_dir, pred_dir, devkit_dir=''):
     gt_imgs = [join(gt_dir, x) for x in gt_imgs]
     pred_imgs = open(image_path_list, 'r').read().splitlines()
     pred_imgs = [join(pred_dir, x.split('/')[-1]) for x in pred_imgs]
+    # import ipdb
+    # ipdb.set_trace()
 
     for ind in range(len(gt_imgs)):
         pred = np.array(Image.open(pred_imgs[ind]))
@@ -55,10 +57,11 @@ def compute_mIoU(gt_dir, pred_dir, devkit_dir=''):
             #pdb.set_trace()
     
     mIoUs = per_class_iu(hist)
+    mIoU = round(np.nanmean(mIoUs) * 100, 2)
     for ind_class in range(num_classes):
         print('===>' + name_classes[ind_class] + ':\t' + str(round(mIoUs[ind_class] * 100, 2)))
-    print('===> mIoU: ' + str(round(np.nanmean(mIoUs) * 100, 2)))
-    return mIoUs
+    print('===> mIoU: ' + str(mIoU))
+    return mIoU
 
 
 def main(args):

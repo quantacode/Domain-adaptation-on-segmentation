@@ -31,7 +31,7 @@ class SynthiaDataSet(data.Dataset):
         for name in self.img_ids:
             #
             img_file = osp.join(self.root, "RGB/%s" % name)
-            label_file = osp.join(self.root, "GT/trainid/%s" % name)
+            label_file = osp.join(self.root, "GT/LABELS_synth-cscape/%s" % name)
             self.files.append({
                 "img": img_file,
                 "label": label_file,
