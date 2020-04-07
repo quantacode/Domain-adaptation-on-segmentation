@@ -32,7 +32,7 @@ IMG_MEAN = np.array((104.00698793, 116.66876762, 122.67891434), dtype=np.float32
 MODEL = 'DeepLab'
 BATCH_SIZE = 1
 ITER_SIZE = 1
-NUM_WORKERS = 8
+NUM_WORKERS = 0
 DATA_DIRECTORY = '/data/datasets/da/synthia/RAND_CITYSCAPES/'
 DATA_LIST_PATH = './dataset/Synthia_list/train.txt'
 IGNORE_LABEL = 255
